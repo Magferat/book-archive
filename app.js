@@ -70,7 +70,7 @@ const displayResult = books => {
                         <img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-50 m-3" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">${book.title}</h5>
-                            <p class="card-text"> by ${book.author_name[0] ? book.author_name[0] : 'Not Found'} </p><p>Publisher : ${book.publisher[0] ? book.publisher[0] : 'Not Found'} </p><p>Publish Year : ${book.first_publish_year ? book.first_publish_year : 'Not Found'}</p> 
+                            <p class="card-text"> by ${book.author_name[0] ? book.author_name[0] : 'Not Found'} </p> <p>Publisher : ${book.publisher[0] ? book.publisher[0] : 'Not Found'} </p><p>Publish Year : ${book.first_publish_year ? book.first_publish_year : 'Not Found'}</p> 
                             <button onclick="loadAuthorDetails('${book.author_key[0]}')" class=" btn btn-info fw-400 text-white ms-5">About Author</button> </div>
 
                     </div>
@@ -102,10 +102,11 @@ const authorDetails = data => {
     // Creating Element Dynamically 
     const div = document.createElement('div');
     div.innerHTML = `
-    <div class="card bg-info text-white fw-300">
+    <div class="card bg-info text-white fw-400">
   <div class="card-body">
     <h4 class="card-title">${data.name}</h4>
     <p class="card-text"><b>Date Of Birth :</b> ${data.birth_date ? data.birth_date : '_ _'}</p>
+    <p class="card-text"><b>Death :</b> ${data.death_date ? data.death_date : '_ _'}</p>
     <p class="card-text"> <b>Bio :</b> ${data.bio?.value ? data.bio?.value : '_ _'}</p>
   </div>
 </div>
