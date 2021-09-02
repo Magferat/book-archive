@@ -16,7 +16,7 @@ const search = () => {
 
 
         // Fetching Desirable Data From API
-        const url = `http://openlibrary.org/search.json?q=${searchText}
+        const url = `https://openlibrary.org/search.json?q=${searchText}
 `;
         fetch(url)
             .then(res => res.json())
@@ -46,7 +46,7 @@ const displayResult = books => {
     // Heandeling Error For Unmatch Input 
     if (books.length === 0) {
         displayError();
-        console.log('hi');
+
     } else {
         const displayDiv = document.getElementById('display-books');
         displayDiv.textContent = '';
@@ -63,7 +63,7 @@ const displayResult = books => {
                         <img src=" https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top w-50 m-3" alt="...">
                         <div class="card-body">
                             <h5 class="card-title text-center">${book.title}</h5>
-                            <p class="card-text text-center"> by ${book.author_name[0]} <br>Publisher : ${book.publisher[0]} <br> ${book.first_publish_year}</p> 
+                            <p class="card-text text-center"> by ${book.author_name[0] ? book.author_name[0] : 'Not Found'} </p> <p>Publisher : ${book.publisher[0] ? book.publisher[0] : 'Not Found'} </p><p> ${book.first_publish_year ? book.first_publish_year : 'Not Found'}</p> 
                             <button onclick="loadAuthorDetails('${book.author_key[0]}')" class=" btn btn-info fw-400 text-white ms-5">About Author</button> </div>
 
                     </div>
